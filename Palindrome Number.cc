@@ -3,7 +3,7 @@ public:
     bool isPalindrome(int x) {
         if (x < 0) {
             return false;
-        } else if (x == 0){
+        } else if (x == 0) {
             return true;
         }
         string str;
