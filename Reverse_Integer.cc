@@ -8,7 +8,7 @@ public:
             ans = ans * 10 + x %10;
             x /= 10;
         }
-        if (abs(ans) >= ((long long)1 << 32 - 1)) {
+        if (abs(ans) >= ((long long)1 << 31)) {
             return 0;
         }
         return ans * symbol;
