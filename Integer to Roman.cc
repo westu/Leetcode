@@ -5,6 +5,7 @@ private:
         num -= w * re;
         return re;
     }
+
 public:
     string intToRoman(int num) {
         int n[5];  // 1 <= num <= 3999
