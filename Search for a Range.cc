@@ -1,6 +1,9 @@
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
+        if (nums.empty() == true) {
+            return (vector<int>(2, -1));
+        }
         int s = 0;
         int t = static_cast<int>(nums.size());
         while (s < t) {
