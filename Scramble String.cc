@@ -15,7 +15,7 @@ class Solution {
     for (int i = 0; i < len; ++i) {
       for (int j = 0; j < len; ++j) {
         dp[i][j][0] = true;
-        dp[i][j][1] = s1.at(i) == s2.at(j) ? true : false;
+        dp[i][j][1] = s1.at(i) == s2.at(j);
       }
     }
     for (int l = 1; l <= len; ++l) {
@@ -25,6 +25,7 @@ class Solution {
             if (dp[i][j][k] == true && dp[i + k][j + k][l -k] == true ||
                 dp[i][j + l - k][k] == true && dp[i + k][j][l - k] == true) {
               dp[i][j][l] = true;
+              break;
             }
           }
         }
