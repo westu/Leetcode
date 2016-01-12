@@ -29,7 +29,7 @@ class Solution {
 
  private:
   void inorder_traversal(TreeNode* node, vector<pair<int, TreeNode*> >&
-                                      inorder_list) {
+                         inorder_list) {
     if (node->left != NULL) {
       inorder_traversal(node->left, inorder_list);
     }
