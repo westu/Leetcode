@@ -1,5 +1,10 @@
 class Solution {
 public:
+    /**
+     * Calculate the total number of distinct N-Queen solutions.
+     * @param n: The number of queens.
+     * @return: The total number of distinct solutions.
+     */
     int totalNQueens(int n) {
         int ans = 0;
         vector<bool> col(n, true), lch(2 * n, true), rch(2 * n, true);
