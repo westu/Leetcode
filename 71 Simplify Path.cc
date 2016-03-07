@@ -9,7 +9,7 @@ public:
         for (size_t i = 0; i < path.size();) {
             ++i;
             size_t j = path.find('/', i);
-            string sub_dir = path.substr(i, j - i);
+            string sub_dir = path.substr(i, j - i);  // regardless "/" on left and right sides
             if (sub_dir.empty() == false && sub_dir != ".") {
                 if (sub_dir == "..") {
                     if (dirs.empty() == false) {
