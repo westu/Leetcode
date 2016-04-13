@@ -5,7 +5,8 @@ public:
             return 0;
         }
         unordered_map<char, int> p;
-        // record the last place of current character's appearance, false or not in map means it's the first time of this charactor
+        // record the last place of current character's appearance,
+        // false or not in map means it's the first time of this charactor
         int subscript_f = 0;
         int ans = 0;
         
@@ -35,7 +36,9 @@ public:
         if (s.empty() == true) {
             return 0;
         }
-        unordered_map<char, int> p; // record the last place of current character's appearance, false or not in map means it's the first time of this charactor
+        unordered_map<char, int> p;
+        // record the last place of current character's appearance,
+        // false or not in map means it's the first time of this charactor
         int subscript_f = 0;
         int ans = 0;
         int last_char_sublen = 0; // in fact, it just need to record two values of array f above
