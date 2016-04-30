@@ -14,6 +14,30 @@ public class Solution {
      * @param root: The root of binary tree.
      * @return: Inorder in ArrayList which contains node values.
      */
+    
+    /**
+     * Solution 1:
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> ans = new ArrayList<Integer>();
+        Stack<TreeNode> st = new Stack<TreeNode>();
+        if (root == null) {
+            return ans;
+        }
+        while (root != null || st.empty() == false) {
+            while (root != null) {
+                st.push(root);
+                root = root.left;
+            }
+            root = st.peek();
+            ans.add(root.val);
+            st.pop();
+            root = root.right;
+        }
+        return ans;
+    }
+     */
+    
+    // Solution 2:
     public ArrayList<Integer> inorderTraversal(TreeNode root) {
         ArrayList<Integer> ans = new ArrayList<Integer>();
         if (root == null) {
