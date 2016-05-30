@@ -19,30 +19,35 @@ public class Solution {
     private class LRUList {
         public ListNode dummpyNode;
         public ListNode lastNode;
+        private HashMap<Integer, ListNode> nodeFinder;
         
         public LRUList() {
             dummpyNode = new ListNode(0);
             lastNode = dummpyNode;
+            nodeFinder = new HashMap<Integer, ListNode>();
         }
         
         public void addNode(int key) {
             lastNode.next = new ListNode(key);
             lastNode.next.prev = lastNode;
             lastNode = lastNode.next;
+            nodeFinder.put(key, lastNode);
         }
         
         public void addNode(ListNode node) {
             lastNode.next = node;
             lastNode.next.prev = lastNode;
             lastNode = lastNode.next;
+            nodeFinder.put(node.key, node);
         }
         
         public ListNode findNode(int key) {
-            ListNode node = dummpyNode.next;
+            return nodeFinder.get(key);
+            /*ListNode node = dummpyNode.next;
             while (node.key != key) {
                 node = node.next;
             }
-            return node;
+            return node;*/
         }
         
         public int getAndDeleteFirst() {
@@ -53,6 +58,7 @@ public class Solution {
             } else {
                 lastNode = dummpyNode;
             }
+            nodeFinder.remove(key);
             return key;
         }
         
