@@ -1,14 +1,21 @@
 class Solution {
 public:
     int hIndex(vector<int>& citations) {
-        citations.push_back(-1);
-        sort(citations.begin(), citations.end());
         int l = static_cast<int>(citations.size());
-        for (int i = l - 1; i > 0; --i) {
-            int h = l - i;
-            if (citations.at(i) >= h && citations.at(i - 1) <= h) {
+        vector<int> counter(l + 1, 0);
+        for (int c : citations) {
+            if (c > l) {
+                counter.at(l) = counter.at(l) + 1;
+            } else {
+                counter.at(c) = counter.at(c) + 1;
+            }
+        }
+        int count = 0;
+        for (int h = l; h >=0; --h) {
+            if (count <= h && h <= count + counter.at(h)) {
                 return h;
             }
+            count = count + counter.at(h);
         }
         return 0;
     }
