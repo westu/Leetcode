@@ -6,15 +6,15 @@ public:
             return 0;
         }
         
-        priority_queue<int, vector<int>, greater<int> > profit;
-        profit.push(prices[0]);
+        int prev_min_profit = prices[0];
         int ans = 0;        
         vector<int> profit_record(l, 0);
         for (int i = 1; i < l; ++i) {
-            int profit_i = prices.at(i) - profit.top();
+            int profit_i = prices.at(i) - prev_min_profit;
             ans = max(ans, profit_i);
             profit_record.at(i) = ans;
-            profit.push(i >= 2 ? prices.at(i) - profit_record.at(i - 2) : prices.at(i));
+            prev_min_profit = min(prev_min_profit,
+                i >= 2 ? prices.at(i) - profit_record.at(i - 2) : prices.at(i));
         }
         return ans;
     }
