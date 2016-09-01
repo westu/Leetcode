@@ -20,7 +20,7 @@ public:
     }
 
 private:
-    pair<int, int> dfs(TreeNode *node) {
+    pair<int, int> dfs(TreeNode *node) {  // first: rob this house; second: not rob this house
         if (node == NULL) {
             return make_pair(0, 0);
         }
