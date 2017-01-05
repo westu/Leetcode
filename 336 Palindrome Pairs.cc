@@ -46,7 +46,7 @@ public:
                     if (it != reverse_word_hashmap.end() && it->second != i) {
                         long long tmp_ans = i * word_num + it->second;
                         if (ans_pair_hash.find(tmp_ans) == ans_pair_hash.end()) {
-                            // avoid an answer(which is a pair) appears more than onec in answer set
+                            // avoid an answer(which is a pair) appears more than onec in answer set, like "aaaaa" and "aa"
                             single_ans.at(0) = i;
                             single_ans.at(1) = it->second;
                             ans.push_back(single_ans);
