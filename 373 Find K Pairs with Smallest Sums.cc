@@ -9,7 +9,7 @@ class Solution {
     multimap<int, pair<int, int>> min_heap;
     int len1 = static_cast<int>(nums1.size());
     int len2 = static_cast<int>(nums2.size());
-    for (int i = 0; i < len1; ++i) {
+    for (int i = 0; i < min(len1, k); ++i) {
       min_heap.insert(make_pair(nums1.at(i) + nums2.at(0), make_pair(i, 0)));
     }
     
