@@ -17,7 +17,34 @@ public:
         int max_count = 0;
         int count = 0;
         TreeNode *pre = NULL;
-        dfs(root, pre, count, max_count, ans);
+        // dfs(root, pre, count, max_count, ans);
+        
+        stack<TreeNode*> trace;
+        TreeNode *p = root;
+        while (!trace.empty() || p) {
+            while (p != NULL) {
+                trace.push(p);
+                p = p->left;
+            }
+            p = trace.top();
+            trace.pop();
+            
+            if (pre != NULL && p->val == pre->val) {
+                ++count;
+            } else {
+                count = 1;
+            }
+            if (count >= max_count) {
+                if (count > max_count) {
+                    max_count = count;
+                    ans.clear();
+                }
+                ans.push_back(p->val);
+            }
+            
+            pre = p;
+            p = p->right;
+        }
         return ans;
     }
 
@@ -42,4 +69,5 @@ private:
         pre = node;
         dfs(node->right, pre, count, max_count, ans);
     }
+
 };
