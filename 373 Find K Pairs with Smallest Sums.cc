@@ -27,3 +27,34 @@ class Solution {
     return ans;
   }
 };
+
+// class Solution2nd {
+//  public:
+//   vector<pair<int, int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {
+//     vector<pair<int, int>> pairs;
+//     if (nums1.empty() || nums2.empty()) {
+//       return pairs;
+//     }
+//     multimap<int, pair<int, int>> min_heap;
+//     for (int i = 0; i < min(k, static_cast<int>(nums2.size())); ++i) {
+//       min_heap.insert(make_pair(nums1.at(0) + nums2.at(i), make_pair(nums1.at(0), nums2.at(i))));
+//     }
+//     for (int i = 1; i < static_cast<int>(nums1.size()); ++i) {
+//       for (int j = 0; j < min(k, static_cast<int>(nums2.size())); ++j) {
+//         if (min_heap.size() == k && nums1.at(i) + nums2.at(j) >= min_heap.rbegin()->first) {
+//           break;
+//         }
+//         if (min_heap.size() == k) {
+//           auto it = min_heap.end();
+//           --it;
+//           min_heap.erase(it);
+//         }
+//         min_heap.insert(make_pair(nums1.at(i) + nums2.at(j), make_pair(nums1.at(i), nums2.at(j))));
+//       }
+//     }
+//     for (auto it : min_heap) {
+//       pairs.push_back(it.second);
+//     }
+//     return pairs;
+//   }
+// };
