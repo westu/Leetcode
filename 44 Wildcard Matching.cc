@@ -36,7 +36,7 @@ public:
                 if (p[j - 1] == '?' || p[j - 1] == s[i - 1]) {
                     dp[now_i][j] = dp[now_i ^ 1][j - 1];
                 } else if (p[j - 1] == '*') {
-                    dp[now_i][j] = dp[now_i ^ 1][j - 1] || dp[now_i ^ 1][j] || dp[now_i][j - 1];
+                    dp[now_i][j] = dp[now_i ^ 1][j] || dp[now_i][j - 1];
                 }
             }
             now_i = now_i ^ 1;
