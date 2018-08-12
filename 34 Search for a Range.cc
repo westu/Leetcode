@@ -8,14 +8,14 @@ public:
         int t = static_cast<int>(nums.size());
         while (s < t) {
             int mid = s + (t - s) / 2;
-            if (nums[mid] >= target) {
-                t = mid;
-            } else {
+            if (nums[mid] < target) {
                 s = mid + 1;
+            } else {
+                t = mid;
             }
         }
         vector<int> ans(2);
-        ans[0] = nums[s] == target ? s : -1;
+        ans[0] = s < nums.size() && nums[s] == target ? s : -1;
         s = 0;
         t = static_cast<int>(nums.size());
         while (s < t) {
