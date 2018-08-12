@@ -73,9 +73,9 @@ public:
 private:
     class User {
     public:
-        vector<pair<int, int> > tweet_list;
+        vector<pair<int, int> > tweet_list;  // tweets of this user
         list<int> follower_list;
-        map<int, int> news_feed_list;
+        map<int, int> news_feed_list;  // tweets of his/her timeline
     };
 
     int timestamp;
