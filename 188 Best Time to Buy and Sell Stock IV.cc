@@ -22,8 +22,8 @@ class Solution {
     vector<int> buy(K + 1, INT_MIN), sell(K + 1, 0);
     for (int price : prices) {
       for (int i = 1; i <= K; ++i) {
-        sell[i] = max(sell[i], buy[i] + price);
         buy[i] = max(buy[i], sell[i - 1] - price);
+        sell[i] = max(sell[i], buy[i] + price);
       }
     }
     return sell[K];
